@@ -1,0 +1,649 @@
+:root {
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --accent-color: #0f3460;
+    --highlight-color: #3498db;
+    --light-blue: #e1f5fe;
+    --dark-gray: #121212;
+    --medium-gray: #2d2d2d;
+    --light-gray: #7f8c8d;
+    --white: #ffffff;
+    --sidebar-width: 280px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dark-mode {
+    --primary-bg: var(--dark-gray);
+    --secondary-bg: var(--medium-gray);
+    --text-primary: var(--white);
+    --text-secondary: #b3b3b3;
+    --card-bg: var(--medium-gray);
+    --border-color: #444;
+}
+
+:root {
+    --primary-bg: #f5f7fa;
+    --secondary-bg: var(--white);
+    --text-primary: var(--primary-color);
+    --text-secondary: var(--light-gray);
+    --card-bg: var(--white);
+    --border-color: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: var(--transition);
+}
+
+body {
+    overflow: hidden; /* Changed to hidden to prevent double scrollbars */
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: var(--sidebar-width);
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 20px 0;
+    position: fixed;
+    height: 100vh;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.logo-container {
+    padding: 0 20px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--white);
+    background: linear-gradient(45deg, var(--highlight-color), var(--accent-color));
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-title {
+    padding: 0 20px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu-item {
+    padding: 15px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--white);
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.menu-item:hover::before {
+    left: 100%;
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--highlight-color);
+    padding-left: 16px;
+}
+
+.menu-link {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: var(--transition);
+    display: inline-block;
+    position: relative;
+}
+
+.menu-link:hover {
+    color: var(--highlight-color);
+    transform: translateX(8px);
+}
+
+/* Main Content */
+.main-content {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    padding: 30px;
+    background-color: var(--primary-bg);
+    overflow-y: auto; /* Added for vertical scrolling */
+    height: 100vh; /* Ensure it takes full viewport height to enable scrolling */
+}
+
+/* Top Navigation */
+.top-nav {
+    background-color: var(--secondary-bg);
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    min-width: 0;
+}
+
+.nav-items {
+    display: flex;
+    list-style: none;
+    flex: 1;
+    gap: 2.5rem;
+    padding: 1px 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--highlight-color), var(--accent-color));
+    transition: width 0.3s ease;
+    border-radius: 3px;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--highlight-color);
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-input {
+    padding: 12px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    width: 250px;
+    transition: var(--transition);
+    background-color: var(--secondary-bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    padding-right: 45px;
+}
+
+.search-input:focus {
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.search-button {
+    background-color: var(--highlight-color);
+    color: rgb(138, 134, 134);
+    border: none;
+    padding: 11px 15px;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: var(--transition);
+    position: absolute;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button:hover {
+    background-color: var(--accent-color);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+    background-color: var(--highlight-color);
+    color: white;
+    transform: rotate(15deg);
+}
+
+/* Content Area */
+.content-area {
+    background-color: var(--secondary-bg);
+    padding: 10px; /* Reduced padding */
+    margin-bottom: 5px; /* Added margin on all sides */
+    margin-left: 5px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(19, 160, 248, 0.368);
+    border: 1px solid var(--border-color);
+    background-image: url('gymroom2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-bottom: 50px; /* Keep bottom padding for card spacing */
+}
+
+.content-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(30, 30, 61, 0.751) 0%, rgba(64, 92, 170, 0.599) 100%);
+    border-radius: 12px;
+    z-index: 0;
+}
+
+.content-area > div {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    width: 100%; /* Ensure it takes full width */
+}
+
+.content-area h1 {
+    color: var(--white);
+    margin-bottom: 20px;
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.content-area p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+    background: linear-gradient(45deg, var(--highlight-color), var(--accent-color));
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Fallback if image doesn't load */
+.content-area.no-bg-image {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    :root {
+        --sidebar-width: 220px;
+    }
+    
+    .nav-items {
+        gap: 1.5rem;
+    }
+    
+    .search-input {
+        width: 200px;
+    }
+    
+    .content-area h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        overflow: hidden;
+    }
+    
+    .main-content {
+        margin-left: 70px;
+        padding: 15px;
+    }
+    
+    .logo {
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    .sidebar-title, .menu-link span {
+        display: none;
+    }
+    
+    .top-nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .nav-items {
+        justify-content: center;
+        width: 100%;
+        gap: 1rem;
+    }
+    
+    .nav-controls {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .search-input {
+        width: 100%;
+    }
+    
+    .content-area {
+        padding: 80px;
+        text-align: center;
+    }
+    
+    .content-area h1 {
+        font-size: 2rem;
+    }
+    
+    .content-area p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-items {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .content-area h1 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+/* Animation for text inside content-area */
+.content-area > div {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s ease-out forwards;
+}
+
+.content-area h1 {
+  animation-delay: 0.3s;
+}
+
+.content-area p {
+  animation-delay: 0.6s;
+}
+
+.content-area .cta-button {
+  animation-delay: 0.9s;
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(65deg, rgb(225, 225, 225), #76e1c1,rgb(122, 234, 148),rgb(119, 226, 232), #34ecf6, rgb(43, 136, 235));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* for Firefox */
+  font-weight: 1000;
+}
+
+
+
+
+.logo {
+    width: 130px; /* or any size you prefer */
+    height: auto;
+    border-radius: 18%;
+    box-shadow: 0 0 14px #7eeaf4c2;
+    display: block;
+    margin: 5px;
+    padding: 8px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; /* Reduced gap */
+  margin: 35px auto;
+  padding-top: 35px;
+  justify-content: center; /* Center cards */
+  max-width: 100%;
+}
+
+/* Add these styles to your home.css file */
+
+.test-card {
+    background: rgba(255, 255, 255, 0.095);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.39);
+    padding: 15px;
+    text-align: center;
+    color: rgb(156, 205, 248);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    min-height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    min-width: 170px; /* Reduced from 230px */
+    max-width: 90%;
+}
+
+.test-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.126);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.475);
+}
+
+.test-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.562);
+}
+
+/* Responsive adjustments for cards */
+@media (max-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        /* Removed max-width: 400px to allow it to expand */
+        max-width: 100%; 
+    }
+    
+    .test-card {
+        padding: 10px; /* Adjusted for smaller screens */
+        min-height: 110px; /* Adjusted for smaller screens */
+    }
+    
+    .test-card h3 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-container {
+        gap: 15px;
+    }
+    
+    .test-card {
+        padding: 10px; /* Adjusted for smaller screens */
+        min-height: 90px; /* Adjusted for smaller screens */
+    }
+    
+    .test-card h3 {
+        font-size: 1rem;
+    }
+}
+
+/* Add this at the end of your home.css */
+
+.user-icon {
+  font-size: 28px;
+  margin: 15px 20px;
+  cursor: pointer;
+  color: var(--white);
+}
+
+.user-icon-top {
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-primary);
+  margin-right: 10px;
+  padding: 8px;
+  border-radius: 50%;
+  transition: var(--transition);
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-icon-top:hover {
+  background-color: var(--highlight-color);
+  color: white;
+}
+
+.user-details {
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  z-index: 1001;
+  min-width: 200px;
+}
+
+.user-details.sidebar {
+  position: static;
+  margin: 10px 20px;
+  background: rgba(255,255,255,0.1);
+}
+
+.user-details.top-nav-details {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  z-index: 1001;
+  background: rgba(255,255,255,0.95);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.user-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover;
+}

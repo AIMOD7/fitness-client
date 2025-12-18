@@ -1,0 +1,10 @@
+.admin-content {
+    padding: 20px;
+    /* transition: margin-left 4s ease; */
+}
+
+@media (max-width: 992px) {
+    .admin-content {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,326 @@
+
+.fitness-footer {
+  background: linear-gradient(to bottom, #0a0a0a, #111111);
+  color: #0080ff;
+  width: 100%;
+  padding: 100px 0 50px;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 20px;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.footer-section {
+  padding: 20px;
+}
+
+.contact-info {
+  text-align: left;
+}
+
+.brand-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-section {
+  text-align: right;
+}
+
+.footer-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #0080ff;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #0080ff, #0066cc);
+  border-radius: 2px;
+}
+
+.social-section .footer-title::after {
+  left: auto;
+  right: 0;
+}
+
+.brand-section .footer-title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.footer-text {
+  color: #b3d9ff;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  max-width: 250px;
+}
+
+.footer-contact {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-contact li {
+  margin-bottom: 12px;
+  color: #b3d9ff;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+
+.footer-contact li::before {
+  content: "•";
+  color: #0080ff;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-right: 5px;
+}
+
+/* Social Links */
+.social-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(145deg, #0080ff, #0066cc);
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 128, 255, 0.5);
+}
+
+/* Map Container */
+.map-container {
+  position: absolute;
+  bottom: 80px;
+  right: 30px;
+  width: 300px;
+  height: 200px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid rgba(0, 128, 255, 0.3);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+.map-container:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 30px rgba(0, 128, 255, 0.4);
+}
+
+.map-link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #0080ff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.map-link:hover {
+  color: #b3d9ff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: auto;
+  padding: 25px 0 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #6699cc;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Background Text */
+.footer-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+  font-weight: 900;
+  color: rgba(0, 128, 255, 0.05);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.animated-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%230080ff" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path></svg>');
+  background-size: 50% 100px;
+  transform-origin: bottom center;
+}
+
+.wave1 {
+  animation: wave 18s linear infinite;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.wave2 {
+  animation: wave 16s linear infinite;
+  animation-direction: reverse;
+  opacity: 0.2;
+  z-index: 2;
+}
+
+.wave3 {
+  animation: wave 20s linear infinite;
+  opacity: 0.1;
+  z-index: 3;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(-25%) translateZ(0) scaleY(0.9);
+  }
+  100% {
+    transform: translateX(-50%) translateZ(0) scaleY(1);
+  }
+}
+
+.footer-section {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.footer-section:nth-child(1) { animation-delay: 0.1s; }
+.footer-section:nth-child(2) { animation-delay: 0.2s; }
+.footer-section:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Responsive design */
+@media (max-width: 968px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .social-section {
+    text-align: center;
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+  
+  .footer-title::after {
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+  
+  .footer-contact li {
+    justify-content: center;
+  }
+  
+  .footer-bg-text {
+    font-size: 70px;
+  }
+  
+  .map-container {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-bg-text {
+    font-size: 40px;
+  }
+  
+  .map-container {
+    height: 180px;
+    padding: 10px;
+  }
+  
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}

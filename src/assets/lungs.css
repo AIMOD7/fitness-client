@@ -1,0 +1,177 @@
+.lungs-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  background: linear-gradient(135deg, #000000, #358bdb, #000000);
+  border-radius: 27px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 22px 50px rgba(5, 18, 194, 0.5), inset 0 1px 0 rgba(238, 23, 23, 0.305);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 7%;
+}
+
+.lungs-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 10% 30%, rgba(122, 224, 193, 0.225), transparent 50%),
+              radial-gradient(circle at 70% 85%, rgba(52, 65, 246, 0.256), transparent 50%);
+  pointer-events: none;
+}
+
+.lungs-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  background: linear-gradient(65deg, #76e1c1, #34ecf6, #3c91eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.test-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.timer-display {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #76e1c1;
+}
+
+.timer-label {
+  font-weight: 400;
+  margin-right: 8px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  color: var(--white);
+  user-select: none;
+}
+
+.start-btn {
+  background: linear-gradient(45deg, #34ecf6, #3c91eb);
+}
+
+.start-btn:hover {
+  background: linear-gradient(45deg, #3c91eb, #34ecf6);
+  box-shadow: 0 6px 20px rgba(52, 236, 246, 0.6);
+}
+
+.stop-btn {
+  background: linear-gradient(45deg, #e13434, #eb3c3c);
+}
+
+.stop-btn:hover {
+  background: linear-gradient(45deg, #eb3c3c, #e13434);
+  box-shadow: 0 6px 20px rgba(235, 60, 60, 0.6);
+}
+
+.reset-btn {
+  background: linear-gradient(45deg, #76e1c1, #34ecf6);
+  
+}
+
+.reset-btn:hover {
+  background: linear-gradient(45deg, #2cd5de, #76e1c1);
+  box-shadow: 0 6px 20px rgba(52, 236, 246, 0.6);
+}
+
+.result p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #34ecf6;
+  margin: 0;
+}
+
+.manual-input {
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+}
+
+.manual-input label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.manual-input input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.147);
+  color: var(--white);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.manual-input input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.manual-input input:focus {
+  border-color: #34ecf6;
+  box-shadow: 0 0 8px #34ecf6;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .lungs-container {
+    margin: 20px 15px;
+    padding: 25px 20px;
+  }
+
+  .lungs-container h1 {
+    font-size: 2rem;
+  }
+
+  .timer-display {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .manual-input {
+    max-width: 100%;
+  }
+}

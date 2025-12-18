@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+.yoyo-container {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #000000 0%, #000000 50%, #2A3F60 100%);
+  background-attachment: fixed; /* Keeps background fixed during scroll */
+  color: #7FBFEF;
+  height: 100vh; /* Fill viewport height exactly */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  text-align: center;
+  box-sizing: border-box;
+  overflow-y: auto; /* Enables vertical scroll */
+}
+
+/* Header */
+.yoyo-header h1 {
+  font-size: 2.4rem;
+  color: #7FBFEF;
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(127, 191, 239, 0.4);
+}
+
+.yoyo-header p {
+  font-size: 1.1rem;
+  color: #A9CCE3;
+  margin-top: 8px;
+}
+
+/* Top Info Sections */
+.yoyo-top {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.yoyo-section {
+  background: linear-gradient(145deg, rgba(20, 30, 50, 0.85), rgba(40, 60, 90, 0.85));
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(127, 191, 239, 0.4);
+  width: 220px;
+  font-size: 1rem;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(127, 191, 239, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.yoyo-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(127, 191, 239, 0.25);
+}
+
+.yoyo-section h2 {
+  color: #7FBFEF;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  text-shadow: 0 1px 4px rgba(127, 191, 239, 0.3);
+}
+
+.yoyo-section ul {
+  padding-left: 15px;
+  line-height: 1.5;
+}
+
+/* Video Section */
+.yoyo-video {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.yoyo-video h2 {
+  color: #7FBFEF;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  text-shadow: 0 2px 5px rgba(127, 191, 239, 0.3);
+}
+
+.yoyo-video iframe {
+  width: 60%;
+  height: 70vh;
+  margin: 0 auto;
+  border-radius: 12px;
+  border: 2px solid rgba(127, 191, 239, 0.2);
+  box-shadow: 0 4px 10px rgba(127, 191, 239, 0.15);
+}

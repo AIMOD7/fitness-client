@@ -1,0 +1,36 @@
+.outmost {
+    background-image: url("bg.jpg");
+    height: 100vh;
+    padding: 10%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    object-fit: cover;
+    flex-wrap: wrap;
+}
+
+.outerbox {
+    max-width: 600px;
+    margin-bottom: 10%;
+    padding: 60px;
+    background-color: rgba(228, 229, 232, 0.266);
+    margin-top: 0%;
+    border-radius: 20px;
+    box-shadow: 0px 10px 10px 9px rgb(138, 165, 228);
+    flex-wrap: wrap;
+    backdrop-filter: blur(10px);
+}
+
+.inp,
+.pass,
+.email,
+.image {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #1c1b1b;
+    border-radius: 14px;
+    font-size: 16px;
+}
+

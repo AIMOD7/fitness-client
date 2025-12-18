@@ -1,0 +1,208 @@
+.memberships-section {
+  background: #111;
+  color: #fff;
+  min-height: 100vh;
+  padding: 80px 0 60px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.memberships-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.memberships-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 400px;
+}
+
+.membership-card {
+  width: 260px;
+  height: 340px;
+  perspective: 1200px;
+  cursor: pointer;
+  position: relative;
+  font-family: inherit;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(.4,2,.6,1);
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.membership-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  overflow: hidden;
+  font-family: inherit;
+  text-transform: uppercase;
+}
+
+.card-front {
+  z-index: 2;
+  background: var(--card-gradient, #222);
+  position: relative;
+}
+.card-front::before {
+  content: '';
+  position: absolute;
+  top: -75%;
+  left: -75%;
+  width: 150%;
+  height: 150%;
+  background: linear-gradient(
+    120deg,
+    transparent 60%,
+    #fff 80%,
+    transparent 100%
+  );
+  opacity: 0;
+  transform: rotate(0deg) scale(1.2);
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.membership-card:hover .card-front::before {
+  opacity: 0.7;
+  animation: shine 1s linear;
+}
+
+@keyframes shine {
+  0% {
+    transform: translate(-100%, -100%) rotate(0deg) scale(1.2);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(50%, 50%) rotate(15deg) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(120%, 120%) rotate(0deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.card-front h3 {
+  font-size: 2rem;
+  margin: 0;
+  letter-spacing: 1px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  font-family: inherit;
+  text-transform: uppercase;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background: #bbbbbb;
+  color: #2e2d2d;
+  padding: 24px;
+  box-sizing: border-box;
+  font-family: inherit;
+  text-transform: uppercase;
+}
+
+.card-back h4 {
+  margin: 0 0 12px 0;
+  font-size: 1.3rem;
+  color: #186e10;
+  font-family: inherit;
+  text-transform: uppercase;
+}
+
+.card-back ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-back li {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  font-family: inherit;
+  text-transform: uppercase;
+}
+.memberships-cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Prevent vertical shifting */
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 400px;
+}
+
+.membership-card {
+  width: 260px;
+  height: 340px;
+  perspective: 1200px;
+  cursor: pointer;
+  position: relative;
+  font-family: inherit;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(.4,2,.6,1);
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.membership-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  min-width: 260px;
+  max-height: 340px;
+  max-width: 260px;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  overflow: hidden;
+  font-family: inherit;
+  text-transform: uppercase;
+}

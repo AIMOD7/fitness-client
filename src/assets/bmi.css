@@ -1,0 +1,248 @@
+/* Page base */
+.bmi-container {
+  height: 100vh;
+  background: linear-gradient(135deg, black, #0033aa);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Two-column wrapper (centered) */
+.bmi-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: stretch;
+  justify-content: center;
+  max-width: 1000px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Card styles (simple glass look) */
+.bmi-input-card,
+.bmi-result-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease-in-out;
+  
+  width: 100%;
+  max-width: 70vh;
+}
+
+.bmi-input-card {
+  flex: 1;
+  text-align: center;
+}
+
+.bmi-result-card {
+  flex: 2;
+  text-align: center;
+  animation: fadeInRight 0.8s ease-in-out forwards;
+}
+
+.bmi-title {
+  margin-bottom: 16px;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* -------------------------
+   Gender selector (fresher)
+-------------------------- */
+.gender-section {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.field-label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #dbeafe;
+}
+
+.gender-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.gender-btn {
+  flex: 1 0 auto;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.08);
+  
+  cursor: pointer;
+  transition: 0.25s;
+  font-size: 14px;
+}
+
+.gender-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.gender-btn.active {
+  border-color: #00aaff;
+  background: rgba(0, 170, 255, 0.18);
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.45);
+}
+
+.gender-note {
+  display: block;
+  margin-top: 6px;
+  color: #cfe8ff;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* -------------------------
+   Inputs + button
+-------------------------- */
+.bmi-inputs input {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 14px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.bmi-inputs input:focus {
+  border: 2px solid #00aaff;
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.8);
+}
+
+.bmi-inputs button {
+  margin-top: 18px;
+  padding: 14px;
+  width: 100%;
+  background: #00aaff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.bmi-inputs button:hover {
+  background: #0088cc;
+  transform: translateY(-2px);
+}
+
+/* -------------------------
+   Result side
+-------------------------- */
+.bmi-result-card h3 {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.bmi-circle {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 16px auto;
+  border-radius: 50%;
+  background: conic-gradient(#00aaff 0% 75%, rgba(255, 255, 255, 0.1) 75% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  box-shadow: inset 0 0 20px rgba(0, 170, 255, 0.7);
+  transform: scale(0);
+}
+
+.animate-circle {
+  animation: popIn 0.8s forwards;
+}
+
+.bmi-category {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 8px 0;
+  color: #00ccee;
+}
+
+.bmi-range {
+  font-size: 16px;
+  color: #dddddd;
+}
+
+
+
+
+.bmi-pointer {
+  position: absolute;
+  top: -12px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 12px solid white;
+  transition: left 0.5s ease;
+}
+
+.bmi-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 6px;
+  color: #eee;
+}
+
+/* Animations */
+@keyframes popIn {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Small screens: stack vertically */
+@media (max-width: 780px) {
+  .bmi-wrapper {
+    flex-direction: column;
+    gap: 20px;
+    max-width: 540px;
+  }
+}
+
+/* Fix inputs spacing */
+.bmi-inputs {
+  padding: 5px; /* NEW */
+}
+
+.bmi-inputs input {
+  margin: 12px 0;
+  padding: 14px;
+  border-radius: 10px;
+  width: calc(100% - 10px); /* NEW: keep it inside card */
+}
+
+

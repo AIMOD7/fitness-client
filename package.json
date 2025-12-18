@@ -1,5 +1,5 @@
 {
-  "name": "-y",
+  "name": "ignite",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,10 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^7.0.0",
-    "@fortawesome/free-solid-svg-icons": "^7.0.0",
-    "@fortawesome/react-fontawesome": "^0.2.5",
+ "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.0",
+    "@fortawesome/free-solid-svg-icons": "^6.5.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.11.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
